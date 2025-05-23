@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste over bøker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Registrerte bøker</h2>
+<div id="booklist"></div>
+<br>
+<a href="index.html" class="button">Tilbake til forsiden</a>
+<script>
+fetch('/api/book')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('booklist');
+    const list = document.createElement('ul');
+    data.forEach(book => {
+      const li = document.createElement('li');
+      li.textContent = book.title + ' – ' + book.author;
+      list.appendChild(li);
+    });
+    container.appendChild(list);
+  })
+  .catch(error => {
+    document.getElementById('booklist').textContent = 'Feil ved henting av data.';
+    console.error(error);
+  });
+</script>
+</body>
+</html>

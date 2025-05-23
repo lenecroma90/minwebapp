@@ -1,0 +1,22 @@
+<!-- Husk å endre til å samsvare med de faktiske feltene i databasen din istedenfor navn og
+epost -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Legg til bok</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Legg til bok</h2>
+<form method="POST" action="/leggtil">
+  <label for="title">Tittel:</label>
+  <input type="text" id="title" name="title" required><br>
+  <label for="author">Forfatter:</label>
+  <input type="text" id="author" name="author" required><br>
+  <div class="button-row">
+    <input type="submit" value="Send inn" class="button">
+    <a href="booklist.html" class="button">Se bøker</a>
+  </div>
+</form>
+</body>
+</html>
